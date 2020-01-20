@@ -18,14 +18,14 @@ var questions = [
 
     {
       title: "Choose the correct HTML element for the largest heading:",
-      choices: ["<h6","heading","h1","head"],
+      choices: ["h6","heading","h1","head"],
       answer: "h1"
     },
 
     {
       title: "Which HTML element defines the title of a document?",
-      choices: ["<title>","<meta>","<footer>","<head>"],
-      answer: "<title>"
+      choices: ["title","meta","footer","head"],
+      answer: "title"
     }
 ]
    

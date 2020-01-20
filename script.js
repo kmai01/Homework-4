@@ -1,74 +1,72 @@
 var body = document.body;
-var questionEl = document.querySelector("#question");
+var questionEl = document.querySelector('#question');
+var choice = [];
 
-// var choiceA = document.querySelector("#A");
-// var choiceB = document.querySelector("#B"); 
-// var choiceC = document.querySelector("#C");
-// var choiceD = document.querySelector("#D");
+choice[0] = document.querySelector('#A');
+choice[1] = document.querySelector('#B');
+choice[2] = document.querySelector('#C');
+choice[3] = document.querySelector('#D');
+
 var introEl = document.querySelector('#introduction');
 var startButton = document.querySelector('#start');
 const answerButtonsElement = document.querySelector('#choices');
 const choiceButtons = document.querySelector('#btn');
 
-startButton.addEventListener('click', startquiz);
+var lastIndex = 4;
 
-// var lastIndex = questions.length-1;
-// var runningIndex = 0;
+var RunningIndex = 0;
 
-let shuffledQuestions, currentQuestionIndex;
+function showQuestion() {
+
+    let q = questions[RunningIndex];
+    console.log(q.title)
+    questionEl.innerHTML = "<p>" + q.title + "</p>";
+
+    for (var i = 0; i < q.choices.length; i++) {
+        choice[i].innerHTML = q.choices[i];
+        console.log(choice[i]);
 
 
-function startquiz() {
-    // introduction.style.display = "none";
-    // start.style.display = "none";
-    // console.log('here');
-    introEl.classList.add('hide')
-    startButton.classList.add('hide')
 
- shuffledQuestions = questions.sort(() => Math.random() - .5);
-    questionEl.classList.remove('hide')
-    currentQuestionIndex = 0;
-    setNextQuestion()
-
+    }
 
 }
 
-function setNextQuestion() {
-    //resetState()
-    showQuestion(shuffledQuestions[currentQuestionIndex]);
-    // var ql= questions[runningIndex];
-    // question.innerHTML="<p>" + ql.title + "</p>";
+startButton.addEventListener("click", startQuiz);
 
-
-}
-
-// function resetState()
-// {
-//     choiceButtons.classList.add('hide')
-//     while(answerButtonsElement.firstChild){
-//         answerButtonsElement.removeChild
-//         (answerButtonsElement.firstChild)
-//     }
-// }
-
-function showQuestion(question) {
-    questionEl.innerText = question.title;
-    question.choices.forEach(answer => {
-        const button = document.createElement('button');
-        button.innerText = answer;
-        console.log(questions.choices)
-        button.classList.add('btn');
-        // if (answer.correct) {
-        //     button.dataset.correct = answer.correct;
-        // }
-        button.addEventListener('click', selectAnswer);
-        answerButtonsElement.appendChild(button);
-    })
-}
-
-function selectAnswer(e) {
+function startQuiz() {
+showQuestion();
 
 }
 
 
+function checkAnswer(answer) {
 
+    if ( answer = questions.answer) {
+    // answer is correct , no time substract
+    console.log(question.answer);
+    console.log(answer);
+
+}
+
+else {
+
+    // answer is incorrect, time subtract
+
+
+}
+ 
+if ( RunningIndex < lastIndex){
+
+      RunningIndex++;
+      showQuestion();
+
+}
+ else {
+    
+    // end the quiz and store highscore
+
+ }
+
+
+}
