@@ -11,6 +11,7 @@ var introEl = document.querySelector('#introduction');
 var startButton = document.querySelector('#start');
 const answerButtonsElement = document.querySelector('#choices');
 const choiceButtons = document.querySelector('#btn');
+var counter = document.querySelector('#counter');
 
 var lastIndex = 4;
 
@@ -36,6 +37,7 @@ startButton.addEventListener("click", startQuiz);
 
 function startQuiz() {
 showQuestion();
+setTime()
 
 }
 
@@ -70,3 +72,22 @@ if ( RunningIndex < lastIndex){
 
 
 }
+
+
+
+var secondsLeft = 75;
+
+function setTime() {
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    console.log(secondsLeft);
+    
+
+    if(secondsLeft === 0) {
+      clearInterval(timerInterval);
+      sendMessage();
+    }
+
+  }, 1000);
+}
+
