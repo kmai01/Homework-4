@@ -81,11 +81,12 @@ function setTime() {
   var timerInterval = setInterval(function() {
     secondsLeft--;
     console.log(secondsLeft);
+    counter.textContent=secondsLeft;
     
 
     if(secondsLeft === 0) {
       clearInterval(timerInterval);
-      sendMessage();
+      
     }
 
   }, 1000);
